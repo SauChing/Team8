@@ -9,12 +9,12 @@ export interface Restaurant {
   latitude: number;
   longitude: number;
   distanceMeters?: number; // Calculated dynamically from user coordinates
-  rating: number; // e.g. 4.6
-  reviewCount: number; // e.g. 1820
+  rating?: number; // e.g. 4.6, or undefined if no rating
+  reviewCount?: number; // e.g. 1820, or undefined if no reviews
   priceLevel: 1 | 2 | 3; // 1 = $ (Under $10, hawker/kopitiam), 2 = $$ ($10-$30, casual/cafe), 3 = $$$ ($30+, restaurant)
   isHalal: boolean;
   isVegetarianFriendly: boolean;
-  isOpenNow: boolean;
+  isOpenNow?: boolean;
   isOpenAllNight?: boolean;
   openingHoursText: string;
   photoUrl: string;

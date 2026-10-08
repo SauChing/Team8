@@ -68,10 +68,14 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
 
           {/* Unboxed Metadata Line with typographic separators */}
           <div className="flex items-center gap-1.5 text-xs text-stone-500 mt-1 flex-wrap">
-            <div className="flex items-center gap-1 text-amber-600 font-bold">
-              <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
-              <span className="tabular-nums">{restaurant.rating.toFixed(1)}</span>
-            </div>
+            {typeof restaurant.rating === 'number' ? (
+              <div className="flex items-center gap-1 text-amber-600 font-bold">
+                <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
+                <span className="tabular-nums">{restaurant.rating.toFixed(1)}</span>
+              </div>
+            ) : (
+              <span className="text-stone-400 font-medium">No rating</span>
+            )}
             <span aria-hidden="true" className="text-stone-300">·</span>
             <span className="text-stone-700 font-semibold">{'$'.repeat(restaurant.priceLevel)}</span>
             {restaurant.distanceMeters !== undefined && (
@@ -85,8 +89,20 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
               </>
             )}
             <span aria-hidden="true" className="text-stone-300">·</span>
-            <span className={restaurant.isOpenNow ? 'text-emerald-700 font-medium' : 'text-stone-400'}>
-              {restaurant.isOpenNow ? 'Open' : 'Closed'}
+            <span
+              className={
+                restaurant.isOpenNow === true
+                  ? 'text-emerald-700 font-medium'
+                  : restaurant.isOpenNow === false
+                  ? 'text-stone-400'
+                  : 'text-stone-500'
+              }
+            >
+              {restaurant.isOpenNow === true
+                ? 'Open'
+                : restaurant.isOpenNow === false
+                ? 'Closed'
+                : 'Check hours'}
             </span>
           </div>
 

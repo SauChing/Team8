@@ -1,7 +1,7 @@
 import express from 'express';
-import { placesRouter } from './routes/places';
-import { oneMapRouter } from './routes/onemap';
-import { sessionsRouter } from './routes/sessions';
+import { placesRouter } from './routes/places.js';
+import { oneMapRouter } from './routes/onemap.js';
+import { sessionsRouter } from './routes/sessions.js';
 import {
   isVercel,
   vercelEnv,
@@ -11,7 +11,7 @@ import {
   googleMapsApiKey,
   geminiApiKey,
   oneMapApiKey,
-} from './config/env';
+} from './config/env.js';
 
 export const app = express();
 

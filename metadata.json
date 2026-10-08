@@ -1,6 +1,6 @@
 {
-  "name": "Go Where Makan?",
-  "description": "Singapore\u0027s smart food decider. Don\u0027t know what to eat? We choose the best makan spot near you based on your cravings, budget, and location.",
+  "name": "Jiak Simi",
+  "description": "Singapore office lunch decider. Create a lunch, collect each person's budget and dietary needs, vote, and settle on a venue.",
   "requestFramePermissions": [
     "geolocation"
   ],

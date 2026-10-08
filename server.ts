@@ -2,8 +2,8 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
-import { app } from './server/app';
-import { appUrl, isVercel, vercelEnv } from './server/config/env';
+import { app } from './server/app.js';
+import { appUrl, isVercel, vercelEnv } from './server/config/env.js';
 
 dotenv.config();
 
@@ -35,7 +35,7 @@ async function startServer() {
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`> Go Where Makan? running at ${appUrl} (Env: ${vercelEnv}, Port: ${PORT})`);
+    console.log(`> Jiak Simi running at ${appUrl} (Env: ${vercelEnv}, Port: ${PORT})`);
   });
 }
 

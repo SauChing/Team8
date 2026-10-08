@@ -1,4 +1,4 @@
-import { Restaurant } from '../../src/types/restaurant';
+import { Restaurant } from '../../src/types/restaurant.js';
 
 export async function fetchGooglePlaces(
   apiKey: string,
@@ -25,10 +25,10 @@ export async function fetchGooglePlaces(
 
   let apiUrl = '';
   if (lat !== undefined && lng !== undefined) {
-    // Nearby search with location bias
+    // Nearby search with location bias - only one type parameter supported
     apiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radius}&keyword=${encodeURIComponent(
       searchTerm
-    )}&type=restaurant|meal_takeaway|cafe&key=${apiKey}`;
+    )}&type=restaurant&key=${apiKey}`;
     if (openNow) {
       apiUrl += '&opennow=true';
     }
@@ -53,7 +53,7 @@ export async function fetchGooglePlaces(
     return [];
   }
 
-  // Transform Google Places payload to Restaurant model
+  // Transform Google Places payload to Restaurant model without inventing fake data
   return data.results.map((place: any, index: number): Restaurant => {
     const pLat = place.geometry?.location?.lat || 1.3521;
     const pLng = place.geometry?.location?.lng || 103.8198;
@@ -85,27 +85,37 @@ export async function fetchGooglePlaces(
     else if (nameLower.includes('thai')) inferredCuisine = 'Thai';
     else if (nameLower.includes('burger') || nameLower.includes('pizza') || nameLower.includes('pasta')) inferredCuisine = 'Western';
 
+    const hasOpenNow = place.opening_hours && typeof place.opening_hours.open_now === 'boolean';
+    const isOpenNow = hasOpenNow ? Boolean(place.opening_hours.open_now) : undefined;
+    const openingHoursText = hasOpenNow
+      ? place.opening_hours.open_now
+        ? 'Open now'
+        : 'Closed'
+      : 'Check hours';
+
     return {
       id: place.place_id || `gplace-${index}`,
       name: place.name || 'Singapore Eatery',
       cuisine: inferredCuisine,
       subCuisine: place.types?.[0]?.replace(/_/g, ' ') || 'Singapore Dining',
       address: place.vicinity || place.formatted_address || 'Singapore',
-      nearestMrt: 'Nearest Singapore MRT nearby',
+      nearestMrt: undefined,
       latitude: pLat,
       longitude: pLng,
-      rating: place.rating || 4.2,
-      reviewCount: place.user_ratings_total || 120,
+      rating: typeof place.rating === 'number' ? place.rating : undefined,
+      reviewCount: typeof place.user_ratings_total === 'number' ? place.user_ratings_total : undefined,
       priceLevel,
       isHalal,
       isVegetarianFriendly,
-      isOpenNow: place.opening_hours?.open_now ?? true,
-      openingHoursText: place.opening_hours?.open_now ? 'Open now' : 'Check place hours',
+      isOpenNow,
+      openingHoursText,
       photoUrl,
       mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.name || 'Singapore')}&query_place_id=${place.place_id || ''}`,
-      highlightDish: 'Chef Recommended Specialty',
+      highlightDish: 'Specialty Dish',
       vibe: place.types?.includes('meal_takeaway') ? 'Casual Makan Spot' : 'Dine-In Restaurant',
-      description: `Popular spot in Singapore rated ${place.rating || 4.2}★ by ${place.user_ratings_total || 100}+ food lovers.`,
+      description: place.rating
+        ? `Rated ${place.rating}★ in Singapore${place.user_ratings_total ? ` (${place.user_ratings_total} reviews)` : ''}.`
+        : 'Popular dining spot in Singapore.',
     };
   });
 }

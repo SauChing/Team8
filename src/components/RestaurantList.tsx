@@ -30,7 +30,7 @@ export const RestaurantList: React.FC<RestaurantListProps> = ({
       return list.sort((a, b) => (a.distanceMeters ?? 999999) - (b.distanceMeters ?? 999999));
     }
     if (sortBy === 'rating') {
-      return list.sort((a, b) => b.rating - a.rating || b.reviewCount - a.reviewCount);
+      return list.sort((a, b) => ((b.rating ?? 0) - (a.rating ?? 0)) || ((b.reviewCount ?? 0) - (a.reviewCount ?? 0)));
     }
     if (sortBy === 'price') {
       return list.sort((a, b) => a.priceLevel - b.priceLevel);

@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { oneMapApiKey } from '../config/env';
+import { oneMapApiKey } from '../config/env.js';
 
 export const oneMapRouter = Router();
 
@@ -34,7 +34,17 @@ oneMapRouter.get('/search', async (req: Request, res: Response) => {
     }
 
     const response = await fetch(url, { headers });
-    const data = await response.json();
+    const rawText = await response.text();
+    let data: any;
+    try {
+      data = JSON.parse(rawText);
+    } catch {
+      return res.status(502).json({
+        error: 'Invalid response from OneMap upstream service',
+        results: [],
+        totalNumPages: 0,
+      });
+    }
 
     if (response.ok) {
       return res.json(data);
@@ -77,8 +87,15 @@ oneMapRouter.get(['/revgeocode', '/revgeo'], async (req: Request, res: Response)
     }
 
     const response = await fetch(url, { headers });
+    const rawText = await response.text();
+    let data: any;
+    try {
+      data = JSON.parse(rawText);
+    } catch {
+      return res.status(502).json({ error: 'Invalid response from OneMap upstream', address: null });
+    }
+
     if (response.ok) {
-      const data = await response.json();
       return res.json(data);
     }
     res.json({ address: null });

@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { MakanLunchSession, Participant, VoteType } from '../../src/types/makan';
+import { MakanLunchSession, Participant, VoteType } from '../../src/types/makan.js';
 
 export const sessionsRouter = Router();
 

@@ -131,7 +131,7 @@ export function filterCuratedRestaurants(params: MakanFilterParams): PlacesSearc
 
   // Filter: Min Rating
   if (params.minRating && params.minRating > 0) {
-    results = results.filter((place) => place.rating >= (params.minRating || 0));
+    results = results.filter((place) => (place.rating ?? 0) >= (params.minRating || 0));
   }
 
   // Filter: Max Distance
@@ -145,7 +145,7 @@ export function filterCuratedRestaurants(params: MakanFilterParams): PlacesSearc
   if (userLat !== undefined && userLng !== undefined) {
     results.sort((a, b) => (a.distanceMeters ?? 999999) - (b.distanceMeters ?? 999999));
   } else {
-    results.sort((a, b) => b.rating - a.rating);
+    results.sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
   }
 
   return {

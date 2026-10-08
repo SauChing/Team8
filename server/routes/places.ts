@@ -1,8 +1,8 @@
 import { Router, Request, Response } from 'express';
-import { SINGAPORE_RESTAURANTS, calculateDistanceMeters } from '../../src/data/singaporePlaces';
-import { MakanFilterParams, Restaurant } from '../../src/types/restaurant';
-import { fetchGooglePlaces } from '../providers/googlePlacesProvider';
-import { googleMapsApiKey, isVercel } from '../config/env';
+import { SINGAPORE_RESTAURANTS, calculateDistanceMeters } from '../../src/data/singaporePlaces.js';
+import { MakanFilterParams, Restaurant } from '../../src/types/restaurant.js';
+import { fetchGooglePlaces } from '../providers/googlePlacesProvider.js';
+import { googleMapsApiKey, isVercel } from '../config/env.js';
 
 export const placesRouter = Router();
 
@@ -123,7 +123,7 @@ placesRouter.get('/search', async (req: Request, res: Response) => {
   }
 
   if (minRating && minRating > 0) {
-    filtered = filtered.filter((p) => p.rating >= minRating);
+    filtered = filtered.filter((p) => (p.rating ?? 0) >= minRating);
   }
 
   if (radius && lat !== undefined && lng !== undefined) {
@@ -134,7 +134,7 @@ placesRouter.get('/search', async (req: Request, res: Response) => {
   if (lat !== undefined && lng !== undefined) {
     filtered.sort((a, b) => (a.distanceMeters ?? 999999) - (b.distanceMeters ?? 999999));
   } else {
-    filtered.sort((a, b) => b.rating - a.rating);
+    filtered.sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
   }
 
   res.json({

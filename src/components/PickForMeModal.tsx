@@ -201,11 +201,17 @@ export const PickForMeModal: React.FC<PickForMeModalProps> = ({
 
                 {/* Unboxed Metadata Line with typographic separators */}
                 <div className="flex items-center gap-2 text-xs text-stone-600 mt-1 flex-wrap font-medium">
-                  <div className="flex items-center gap-1 text-amber-600 font-bold">
-                    <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
-                    <span className="tabular-nums">{selectedPlace.rating.toFixed(1)}</span>
-                    <span className="text-stone-400 font-normal">({selectedPlace.reviewCount})</span>
-                  </div>
+                  {typeof selectedPlace.rating === 'number' ? (
+                    <div className="flex items-center gap-1 text-amber-600 font-bold">
+                      <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                      <span className="tabular-nums">{selectedPlace.rating.toFixed(1)}</span>
+                      {selectedPlace.reviewCount !== undefined && (
+                        <span className="text-stone-400 font-normal">({selectedPlace.reviewCount})</span>
+                      )}
+                    </div>
+                  ) : (
+                    <span className="text-stone-400 font-medium">No rating</span>
+                  )}
                   <span aria-hidden="true" className="text-stone-300">·</span>
                   <span className="text-stone-700 font-bold">
                     {'$'.repeat(selectedPlace.priceLevel)}

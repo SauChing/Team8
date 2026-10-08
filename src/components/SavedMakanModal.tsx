@@ -83,10 +83,14 @@ export const SavedMakanModal: React.FC<SavedMakanModalProps> = ({
                       {place.name}
                     </h4>
                     <div className="flex items-center gap-1.5 text-[11px] text-stone-500 mt-0.5">
-                      <span className="text-amber-600 font-bold flex items-center gap-0.5">
-                        <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
-                        {place.rating.toFixed(1)}
-                      </span>
+                      {typeof place.rating === 'number' ? (
+                        <span className="text-amber-600 font-bold flex items-center gap-0.5">
+                          <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
+                          {place.rating.toFixed(1)}
+                        </span>
+                      ) : (
+                        <span className="text-stone-400">No rating</span>
+                      )}
                       <span>·</span>
                       <span>{'$'.repeat(place.priceLevel)}</span>
                       <span>·</span>
