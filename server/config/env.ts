@@ -80,7 +80,8 @@ export const geminiApiKey = (() => {
 })();
 
 /**
- * Singapore OneMap API Key / Token / Credentials
+ * Singapore OneMap API Key / Token for Geocode search.
+ * Passed via Authorization header to https://www.onemap.gov.sg/api/common/elastic/search
  */
 export const oneMapApiKey = (() => {
   const candidate =
@@ -92,5 +93,3 @@ export const oneMapApiKey = (() => {
   return candidate.trim();
 })();
 
-export const oneMapEmail = (process.env.ONEMAP_EMAIL || '').trim();
-export const oneMapPassword = (process.env.ONEMAP_PASSWORD || '').trim();

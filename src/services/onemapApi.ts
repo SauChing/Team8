@@ -127,43 +127,4 @@ export async function reverseGeocodeSG(lat: number, lng: number): Promise<string
   return closestLabel;
 }
 
-/**
- * Mints or refreshes a 3-day OneMap access token via the server proxy
- */
-export async function mintOneMapToken(email: string, pass: string): Promise<{ success: boolean; access_token?: string; error?: string }> {
-  try {
-    const res = await fetch('/api/onemap/token', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password: pass }),
-    });
-    return await res.json();
-  } catch (err: any) {
-    return { success: false, error: err.message };
-  }
-}
-
-/**
- * Calculates a route between two Singapore coordinates using OneMap routing service
- * Supported route types: 'walk' | 'drive' | 'cycle' | 'pt' (public transit)
- */
-export async function getOneMapRoute(
-  startLat: number,
-  startLng: number,
-  endLat: number,
-  endLng: number,
-  routeType: 'walk' | 'drive' | 'cycle' | 'pt' = 'walk'
-): Promise<any> {
-  try {
-    const res = await fetch(
-      `/api/onemap/route?start=${startLat},${startLng}&end=${endLat},${endLng}&routeType=${routeType}`
-    );
-    if (res.ok) {
-      return await res.json();
-    }
-    return null;
-  } catch {
-    return null;
-  }
-}
 
