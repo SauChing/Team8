@@ -182,7 +182,7 @@ export async function fetchGooglePlaces(
     // Secure proxy photo URL so API key is never exposed on client
     const photoUrl = photoRef
       ? `/api/places/photo?ref=${encodeURIComponent(photoRef)}`
-      : 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80';
+      : '/src/assets/images/sg_grain_bowl_1791424515411.jpg';
 
     const priceLevelMap: Record<number, 1 | 2 | 3> = {
       0: 1,
