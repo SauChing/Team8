@@ -1,0 +1,10 @@
+{
+  "name": "Go Where Makan?",
+  "description": "Singapore\u0027s smart food decider. Don\u0027t know what to eat? We choose the best makan spot near you based on your cravings, budget, and location.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
