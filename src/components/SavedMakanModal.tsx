@@ -76,6 +76,7 @@ export const SavedMakanModal: React.FC<SavedMakanModalProps> = ({
                   <img
                     src={place.photoUrl}
                     alt={place.name}
+                    referrerPolicy="no-referrer"
                     className="w-16 h-16 rounded-xl object-cover shrink-0"
                   />
                   <div className="min-w-0 flex-1">

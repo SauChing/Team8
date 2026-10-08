@@ -4,9 +4,14 @@ import { Venue } from '../types/makan';
 const japaneseImg = '/src/assets/images/sg_japanese_dining_1791424498484.jpg';
 const grainBowlImg = '/src/assets/images/sg_grain_bowl_1791424515411.jpg';
 const rotiPrataImg = '/src/assets/images/sg_roti_prata_1791423563304.jpg';
+const prataDhalImg = '/src/assets/images/sg_prata_dhal_1791435075017.jpg';
 const chickenRiceImg = '/src/assets/images/sg_chicken_rice_1791423539489.jpg';
 const nasiLemakImg = '/src/assets/images/sg_nasi_lemak_1791423573262.jpg';
 const laksaBowlImg = '/src/assets/images/sg_laksa_bowl_1791423551806.jpg';
+const masalaDosaImg = '/src/assets/images/sg_masala_dosa_1791435087573.jpg';
+const bakChorMeeImg = '/src/assets/images/sg_bak_chor_mee_1791435099444.jpg';
+const dimSumImg = '/src/assets/images/sg_dim_sum_spread_1791435109216.jpg';
+const cafeSourdoughImg = '/src/assets/images/sg_cafe_sourdough_1791435121561.jpg';
 
 /**
  * Curated Singapore lunch venues (Sample Data for presentation demo).
@@ -53,7 +58,7 @@ export const SAMPLE_MAKAN_VENUES: Venue[] = [
     hasPorkFreeOptions: true,
     walkMinutesFromCBD: 5,
     travelEstimate: '5 min walk from Tanjong Pagar MRT (Exit A)',
-    photoUrl: rotiPrataImg,
+    photoUrl: prataDhalImg,
     mapsUrl: 'https://maps.google.com/?q=Icon+Village+Gopeng+Street+Singapore',
     phone: '+65 6538 1200',
     uncertaintyNote: 'Walk-ins only. Group tables of 4 usually seat within 5 minutes.',
@@ -170,7 +175,7 @@ export const SAMPLE_MAKAN_VENUES: Venue[] = [
     hasPorkFreeOptions: true,
     walkMinutesFromCBD: 5,
     travelEstimate: '5 min walk from Tanjong Pagar MRT',
-    photoUrl: rotiPrataImg,
+    photoUrl: masalaDosaImg,
     mapsUrl: 'https://maps.google.com/?q=Peck+Seah+Street+Singapore',
     phone: '+65 6223 9980',
     uncertaintyNote: '100% vegetarian kitchen, but does not carry official MUIS Halal certification.',
@@ -193,7 +198,7 @@ export const SAMPLE_MAKAN_VENUES: Venue[] = [
     hasPorkFreeOptions: true,
     walkMinutesFromCBD: 8,
     travelEstimate: '8 min walk from Raffles Place MRT',
-    photoUrl: grainBowlImg,
+    photoUrl: cafeSourdoughImg,
     mapsUrl: 'https://maps.google.com/?q=OCBC+Centre+Chulia+Street+Singapore',
     phone: '+65 6536 8860',
     uncertaintyNote: 'Peak seating wait of 10 minutes from 12:15 PM onwards.',

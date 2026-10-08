@@ -70,6 +70,7 @@ export const Screen4Settled: React.FC<Screen4SettledProps> = ({
           <img
             src={venue.photoUrl}
             alt={venue.name}
+            referrerPolicy="no-referrer"
             className="w-full h-full object-cover"
           />
           <div className="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">

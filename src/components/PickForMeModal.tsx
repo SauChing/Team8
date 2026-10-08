@@ -123,6 +123,7 @@ export const PickForMeModal: React.FC<PickForMeModalProps> = ({
                   <img
                     src={currentPreview.photoUrl}
                     alt={currentPreview.name}
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transition-all duration-75 scale-105"
                   />
                 )}
@@ -153,6 +154,7 @@ export const PickForMeModal: React.FC<PickForMeModalProps> = ({
                 <img
                   src={selectedPlace.photoUrl}
                   alt={selectedPlace.name}
+                  referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
                 

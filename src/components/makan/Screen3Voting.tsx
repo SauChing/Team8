@@ -169,6 +169,7 @@ export const Screen3Voting: React.FC<Screen3VotingProps> = ({
                   <img
                     src={venue.photoUrl}
                     alt={venue.name}
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">
