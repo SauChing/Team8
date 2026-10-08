@@ -15,6 +15,7 @@ import {
   Users
 } from 'lucide-react';
 import { Venue, Participant, MakanLunchSession } from '../../types/makan';
+import { EmbeddedVenueMap } from './EmbeddedVenueMap';
 
 interface Screen4SettledProps {
   venue: Venue;
@@ -133,6 +134,11 @@ export const Screen4Settled: React.FC<Screen4SettledProps> = ({
                 <span>{venue.phone}</span>
               </div>
             )}
+          </div>
+
+          {/* Embedded Interactive Google Map */}
+          <div className="pt-1">
+            <EmbeddedVenueMap venue={venue} heightClass="h-56 sm:h-64" />
           </div>
 
           {/* Group Response Summary */}

@@ -12,11 +12,14 @@ import {
   Users,
   ArrowRight,
   RotateCcw,
-  Info
+  Info,
+  MapPin,
+  Map
 } from 'lucide-react';
 import { Venue, Participant, VoteType, VenueEvaluation } from '../../types/makan';
 import { summarizeVenueVotes, EvaluationResult } from '../../services/makanEngine';
 import { OpenRiceSearchBar } from './OpenRiceSearchBar';
+import { EmbeddedVenueMap } from './EmbeddedVenueMap';
 
 interface Screen3VotingProps {
   evaluationResult: EvaluationResult;
@@ -51,6 +54,8 @@ export const Screen3Voting: React.FC<Screen3VotingProps> = ({
 }) => {
   const currentParticipant =
     participants.find((p) => p.id === activeParticipantId) || participants[0];
+
+  const [expandedMapVenueId, setExpandedMapVenueId] = useState<string | null>(null);
 
   const { topThree, hasConflict, conflictDetails } = evaluationResult;
 
@@ -207,6 +212,32 @@ export const Screen3Voting: React.FC<Screen3VotingProps> = ({
                       <span aria-hidden="true" className="text-stone-300">·</span>
                       <span className="text-stone-800 font-semibold">{venue.travelEstimate}</span>
                     </div>
+
+                    {/* View on Map Toggle */}
+                    <div className="mt-2">
+                      <button
+                        onClick={() =>
+                          setExpandedMapVenueId(
+                            expandedMapVenueId === venue.id ? null : venue.id
+                          )
+                        }
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-stone-100 hover:bg-stone-200/70 text-stone-700 transition-colors"
+                      >
+                        <MapPin className="w-3 h-3 text-rose-600" />
+                        <span>
+                          {expandedMapVenueId === venue.id
+                            ? 'Hide Google Map'
+                            : 'View on Google Map'}
+                        </span>
+                      </button>
+                    </div>
+
+                    {/* Embedded Map Container */}
+                    {expandedMapVenueId === venue.id && (
+                      <div className="pt-3 animate-in fade-in duration-200">
+                        <EmbeddedVenueMap venue={venue} heightClass="h-52 sm:h-60" />
+                      </div>
+                    )}
                   </div>
 
                   {/* Why it fits (Deterministic explanation) */}
