@@ -103,10 +103,9 @@ export const ApiKeyConfigModal: React.FC<ApiKeyConfigModalProps> = ({
             </div>
 
             <ol className="list-decimal pl-4 space-y-1 text-[11px] text-stone-600">
-              <li>Open your project's <code className="text-stone-900 font-semibold">.env</code> file (or secrets panel).</li>
-              <li>Add <code className="text-stone-900 font-semibold">GOOGLE_MAPS_API_KEY="YOUR_KEY"</code>.</li>
+              <li><strong>Local / Cloud:</strong> Add <code className="text-stone-900 font-semibold">GOOGLE_MAPS_API_KEY="YOUR_KEY"</code> to your <code className="text-stone-900 font-semibold">.env</code> file.</li>
+              <li><strong>Vercel Deployment:</strong> Go to <em>Vercel Dashboard &gt; Project Settings &gt; Environment Variables</em>, add <code className="text-stone-900 font-semibold">GOOGLE_MAPS_API_KEY</code>, and redeploy.</li>
               <li>Ensure the key has <em>Places API</em> enabled in Google Cloud Console.</li>
-              <li>Restart the app with <code className="text-stone-900 font-semibold">npm run dev</code>.</li>
             </ol>
           </div>
 

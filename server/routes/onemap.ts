@@ -1,4 +1,5 @@
 import { Router, Request, Response } from 'express';
+import { oneMapApiKey } from '../config/env';
 
 export const oneMapRouter = Router();
 
@@ -13,11 +14,14 @@ oneMapRouter.get('/search', async (req: Request, res: Response) => {
       query.trim()
     )}&returnGeom=Y&getAddrDetails=Y&pageNum=1`;
     
-    const response = await fetch(url, {
-      headers: {
-        'Accept': 'application/json',
-      },
-    });
+    const headers: Record<string, string> = {
+      'Accept': 'application/json',
+    };
+    if (oneMapApiKey && !oneMapApiKey.includes('YOUR_')) {
+      headers['Authorization'] = oneMapApiKey;
+    }
+
+    const response = await fetch(url, { headers });
 
     if (response.ok) {
       const data = await response.json();

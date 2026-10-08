@@ -2,16 +2,18 @@ import { Router, Request, Response } from 'express';
 import { SINGAPORE_RESTAURANTS, calculateDistanceMeters } from '../../src/data/singaporePlaces';
 import { MakanFilterParams, Restaurant } from '../../src/types/restaurant';
 import { fetchGooglePlaces } from '../providers/googlePlacesProvider';
+import { googleMapsApiKey, isVercel } from '../config/env';
 
 export const placesRouter = Router();
 
 placesRouter.get('/status', (req: Request, res: Response) => {
-  const apiKey = process.env.GOOGLE_MAPS_API_KEY || process.env.GOOGLE_PLACES_API_KEY;
+  const apiKey = googleMapsApiKey;
   const hasKey = Boolean(apiKey && apiKey.trim() !== '' && !apiKey.includes('YOUR_'));
   res.json({
     hasGoogleMapsKey: hasKey,
     activeProvider: hasKey ? 'Google Places API (Live)' : 'Curated Singapore Makan Dataset (Fast & Offline-Ready)',
     oneMapConfigured: true,
+    isVercel,
     message: hasKey
       ? 'Google Places API is active with secure server-side proxy.'
       : 'Using the rich Singapore food dataset covering iconic hawkers, kopitiams, and cafes. Add GOOGLE_MAPS_API_KEY to switch anytime.',
@@ -19,7 +21,7 @@ placesRouter.get('/status', (req: Request, res: Response) => {
 });
 
 placesRouter.get('/search', async (req: Request, res: Response) => {
-  const apiKey = process.env.GOOGLE_MAPS_API_KEY || process.env.GOOGLE_PLACES_API_KEY;
+  const apiKey = googleMapsApiKey;
   const hasKey = Boolean(apiKey && apiKey.trim() !== '' && !apiKey.includes('YOUR_'));
 
   const lat = req.query.lat ? parseFloat(req.query.lat as string) : undefined;
@@ -145,7 +147,7 @@ placesRouter.get('/search', async (req: Request, res: Response) => {
 // Photo proxy to protect Google API Key from being exposed to frontend
 placesRouter.get('/photo', async (req: Request, res: Response) => {
   const photoRef = req.query.ref as string;
-  const apiKey = process.env.GOOGLE_MAPS_API_KEY || process.env.GOOGLE_PLACES_API_KEY;
+  const apiKey = googleMapsApiKey;
 
   if (!photoRef || !apiKey) {
     return res.status(400).send('Missing photo reference or API key');

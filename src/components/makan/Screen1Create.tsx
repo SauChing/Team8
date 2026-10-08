@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, ArrowRight, Copy, Check, Share2, MapPin, Users, Clock, QrCode } from 'lucide-react';
 import { QrCodeSvg } from './QrCodeSvg';
+import { getAppBaseUrl } from '../../config/env';
 
 interface Screen1CreateProps {
   onStartLunch: (details: {
@@ -33,9 +34,8 @@ export const Screen1Create: React.FC<Screen1CreateProps> = ({
   const [copied, setCopied] = useState(false);
 
   // Generate shareable link
-  const inviteLink = typeof window !== 'undefined'
-    ? `${window.location.origin}/?join=makan-lunch`
-    : 'https://makan.app/join/lunch';
+  const baseUrl = getAppBaseUrl();
+  const inviteLink = `${baseUrl}/?join=makan-lunch`;
 
   const handleCopyLink = () => {
     if (navigator.clipboard) {
