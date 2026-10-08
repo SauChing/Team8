@@ -27,6 +27,13 @@ async function startServer() {
   app.get('/api/health', healthHandler);
   app.get('/api/health.js', healthHandler);
 
+  // Static image assets: serve unconditionally in both development and production
+  const srcImages = path.resolve(__dirname, 'src/assets/images');
+  const publicImages = path.resolve(__dirname, 'public/assets/images');
+  app.use('/src/assets/images', express.static(srcImages, { maxAge: '1d' }));
+  app.use('/assets/images', express.static(publicImages, { maxAge: '1d' }));
+  app.use('/assets/images', express.static(srcImages, { maxAge: '1d' }));
+
   // Development: Mount Vite middlewares for seamless HMR & SPA serving
   if (process.env.NODE_ENV !== 'production') {
     const { createServer: createViteServer } = await import('vite');

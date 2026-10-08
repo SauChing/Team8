@@ -4,6 +4,7 @@ import { Restaurant } from '../types/restaurant';
 const chickenRiceImg = '/src/assets/images/sg_chicken_rice_1791423539489.jpg';
 const laksaBowlImg = '/src/assets/images/sg_laksa_bowl_1791423551806.jpg';
 const rotiPrataImg = '/src/assets/images/sg_roti_prata_1791423563304.jpg';
+const prataDhalImg = '/src/assets/images/sg_prata_dhal_1791435075017.jpg';
 const nasiLemakImg = '/src/assets/images/sg_nasi_lemak_1791423573262.jpg';
 const grainBowlImg = '/src/assets/images/sg_grain_bowl_1791424515411.jpg';
 const japaneseImg = '/src/assets/images/sg_japanese_dining_1791424498484.jpg';
@@ -11,6 +12,9 @@ const dimSumImg = '/src/assets/images/sg_dim_sum_1791435579645.jpg';
 const satayImg = '/src/assets/images/sg_satay_skewers_1791435595025.jpg';
 const bakKutTehImg = '/src/assets/images/sg_bak_kut_teh_1791435613303.jpg';
 const dessertImg = '/src/assets/images/sg_dessert_bowl_1791435627068.jpg';
+const masalaDosaImg = '/src/assets/images/sg_masala_dosa_1791435087573.jpg';
+const bakChorMeeImg = '/src/assets/images/sg_bak_chor_mee_1791435099444.jpg';
+const cafeSourdoughImg = '/src/assets/images/sg_cafe_sourdough_1791435121561.jpg';
 
 export const SINGAPORE_RESTAURANTS: Restaurant[] = [
   {
@@ -76,7 +80,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: true,
     isOpenNow: true,
     openingHoursText: '7:00 AM - 11:00 PM (Daily)',
-    photoUrl: rotiPrataImg,
+    photoUrl: prataDhalImg,
     mapsUrl: 'https://maps.google.com/?q=Singapore+Zam+Zam+North+Bridge+Road',
     highlightDish: 'Crispy Mutton Murtabak & Deer Meat Briyani',
     vibe: 'Heritage Kopitiam',
@@ -122,7 +126,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: false,
     isOpenNow: true,
     openingHoursText: '9:30 AM - 8:30 PM (Closed 1st & 3rd Mondays)',
-    photoUrl: chickenRiceImg,
+    photoUrl: bakChorMeeImg,
     mapsUrl: 'https://maps.google.com/?q=Hill+Street+Tai+Hwa+Pork+Noodle+Crawford+Lane',
     highlightDish: 'Bak Chor Mee with Sole Fish & Black Vinegar',
     vibe: 'Hawker Centre',
@@ -168,7 +172,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: true,
     isOpenNow: true,
     openingHoursText: '8:00 AM - 11:00 PM (Daily)',
-    photoUrl: rotiPrataImg,
+    photoUrl: prataDhalImg,
     mapsUrl: 'https://maps.google.com/?q=Springleaf+Prata+Place+Thong+Soon',
     highlightDish: 'Murtaburger & Coin Prata with Mutton Curry',
     vibe: 'Kopitiam',
@@ -191,7 +195,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: true,
     isOpenNow: true,
     openingHoursText: '7:00 AM - 10:30 PM (Daily)',
-    photoUrl: rotiPrataImg,
+    photoUrl: masalaDosaImg,
     mapsUrl: 'https://maps.google.com/?q=Komala+Vilas+Serangoon+Road',
     highlightDish: 'Ghee Masala Dosa with Sambar & Coconut Chutney',
     vibe: 'Heritage Kopitiam',
@@ -283,7 +287,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: true,
     isOpenNow: true,
     openingHoursText: '7:30 AM - 8:00 PM (Daily)',
-    photoUrl: rotiPrataImg,
+    photoUrl: cafeSourdoughImg,
     mapsUrl: 'https://maps.google.com/?q=Tiong+Bahru+Bakery+56+Eng+Hoon+Street',
     highlightDish: 'Original Kouign Amann & Flaky Almond Croissant with Flat White',
     vibe: 'Aircon Cafe',
@@ -467,7 +471,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: false,
     isOpenNow: true,
     openingHoursText: '11:30 AM - 10:00 PM (Daily)',
-    photoUrl: chickenRiceImg,
+    photoUrl: cafeSourdoughImg,
     mapsUrl: 'https://maps.google.com/?q=Astons+Specialities+City+Square+Mall',
     highlightDish: 'Prime Sirloin Steak with Mushroom Sauce, Onion Rings & Baked Potato',
     vibe: 'Casual Western',
@@ -491,7 +495,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isOpenNow: true,
     isOpenAllNight: true,
     openingHoursText: 'Open 24 Hours (Supper Champion)',
-    photoUrl: rotiPrataImg,
+    photoUrl: masalaDosaImg,
     mapsUrl: 'https://maps.google.com/?q=Ananda+Bhavan+Buffalo+Road',
     highlightDish: 'Rava Onion Dosa, Chana Bhatura & Fresh Sugarcane Juice',
     vibe: '24/7 Eatery',
