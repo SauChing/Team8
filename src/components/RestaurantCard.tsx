@@ -25,8 +25,8 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
         <img
           src={restaurant.photoUrl}
           alt={restaurant.name}
-          loading="lazy"
           referrerPolicy="no-referrer"
+          loading="lazy"
           className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
         />
 

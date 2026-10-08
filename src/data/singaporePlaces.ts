@@ -1,17 +1,16 @@
 import { Restaurant } from '../types/restaurant';
 
-// Image paths generated and stored in src/assets/images
+// AI-generated food images (strictly non-copyright assets generated specifically for the applet)
 const chickenRiceImg = '/src/assets/images/sg_chicken_rice_1791423539489.jpg';
 const laksaBowlImg = '/src/assets/images/sg_laksa_bowl_1791423551806.jpg';
 const rotiPrataImg = '/src/assets/images/sg_roti_prata_1791423563304.jpg';
-const prataDhalImg = '/src/assets/images/sg_prata_dhal_1791435075017.jpg';
 const nasiLemakImg = '/src/assets/images/sg_nasi_lemak_1791423573262.jpg';
 const grainBowlImg = '/src/assets/images/sg_grain_bowl_1791424515411.jpg';
 const japaneseImg = '/src/assets/images/sg_japanese_dining_1791424498484.jpg';
-const masalaDosaImg = '/src/assets/images/sg_masala_dosa_1791435087573.jpg';
-const bakChorMeeImg = '/src/assets/images/sg_bak_chor_mee_1791435099444.jpg';
-const dimSumImg = '/src/assets/images/sg_dim_sum_spread_1791435109216.jpg';
-const cafeSourdoughImg = '/src/assets/images/sg_cafe_sourdough_1791435121561.jpg';
+const dimSumImg = '/src/assets/images/sg_dim_sum_1791435579645.jpg';
+const satayImg = '/src/assets/images/sg_satay_skewers_1791435595025.jpg';
+const bakKutTehImg = '/src/assets/images/sg_bak_kut_teh_1791435613303.jpg';
+const dessertImg = '/src/assets/images/sg_dessert_bowl_1791435627068.jpg';
 
 export const SINGAPORE_RESTAURANTS: Restaurant[] = [
   {
@@ -77,7 +76,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: true,
     isOpenNow: true,
     openingHoursText: '7:00 AM - 11:00 PM (Daily)',
-    photoUrl: prataDhalImg,
+    photoUrl: rotiPrataImg,
     mapsUrl: 'https://maps.google.com/?q=Singapore+Zam+Zam+North+Bridge+Road',
     highlightDish: 'Crispy Mutton Murtabak & Deer Meat Briyani',
     vibe: 'Heritage Kopitiam',
@@ -123,7 +122,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: false,
     isOpenNow: true,
     openingHoursText: '9:30 AM - 8:30 PM (Closed 1st & 3rd Mondays)',
-    photoUrl: bakChorMeeImg,
+    photoUrl: chickenRiceImg,
     mapsUrl: 'https://maps.google.com/?q=Hill+Street+Tai+Hwa+Pork+Noodle+Crawford+Lane',
     highlightDish: 'Bak Chor Mee with Sole Fish & Black Vinegar',
     vibe: 'Hawker Centre',
@@ -169,7 +168,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: true,
     isOpenNow: true,
     openingHoursText: '8:00 AM - 11:00 PM (Daily)',
-    photoUrl: prataDhalImg,
+    photoUrl: rotiPrataImg,
     mapsUrl: 'https://maps.google.com/?q=Springleaf+Prata+Place+Thong+Soon',
     highlightDish: 'Murtaburger & Coin Prata with Mutton Curry',
     vibe: 'Kopitiam',
@@ -192,7 +191,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: true,
     isOpenNow: true,
     openingHoursText: '7:00 AM - 10:30 PM (Daily)',
-    photoUrl: masalaDosaImg,
+    photoUrl: rotiPrataImg,
     mapsUrl: 'https://maps.google.com/?q=Komala+Vilas+Serangoon+Road',
     highlightDish: 'Ghee Masala Dosa with Sambar & Coconut Chutney',
     vibe: 'Heritage Kopitiam',
@@ -261,7 +260,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: false,
     isOpenNow: true,
     openingHoursText: '10:30 AM - 9:30 PM (Daily)',
-    photoUrl: chickenRiceImg,
+    photoUrl: bakKutTehImg,
     mapsUrl: 'https://maps.google.com/?q=Song+Fa+Bak+Kut+Teh+11+New+Bridge+Road',
     highlightDish: 'Tender Pork Ribs Soup with Free-Flow Peppery Broth & You Tiao',
     vibe: 'Heritage Bistro',
@@ -284,7 +283,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: true,
     isOpenNow: true,
     openingHoursText: '7:30 AM - 8:00 PM (Daily)',
-    photoUrl: cafeSourdoughImg,
+    photoUrl: rotiPrataImg,
     mapsUrl: 'https://maps.google.com/?q=Tiong+Bahru+Bakery+56+Eng+Hoon+Street',
     highlightDish: 'Original Kouign Amann & Flaky Almond Croissant with Flat White',
     vibe: 'Aircon Cafe',
@@ -307,7 +306,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: false,
     isOpenNow: true,
     openingHoursText: '5:00 PM - 10:30 PM (Supper, Closed Mon & Thu)',
-    photoUrl: chickenRiceImg,
+    photoUrl: satayImg,
     mapsUrl: 'https://maps.google.com/?q=Chuan+Kee+Satay+Old+Airport+Road+Food+Centre',
     highlightDish: 'Pork & Chicken Satay with Pineapple Puree Peanut Gravy',
     vibe: 'Hawker Centre',
@@ -353,7 +352,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: false,
     isOpenNow: true,
     openingHoursText: '11:30 AM - 2:30 PM, 5:30 PM - 10:30 PM (Daily)',
-    photoUrl: chickenRiceImg,
+    photoUrl: satayImg,
     mapsUrl: 'https://maps.google.com/?q=Wang+Dae+Bak+Korean+BBQ+Cross+Street',
     highlightDish: 'Charcoal Pork Belly Set & Half-and-Half Seafood Pancake',
     vibe: 'Bustling Restaurant',
@@ -445,7 +444,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: true,
     isOpenNow: true,
     openingHoursText: '12:30 PM - 12:00 AM (Supper, Daily)',
-    photoUrl: chickenRiceImg,
+    photoUrl: dessertImg,
     mapsUrl: 'https://maps.google.com/?q=Ah+Chew+Desserts+Liang+Seah+Street',
     highlightDish: 'Mango Sago with Pomelo & Steamed Milk Custard with Ginger',
     vibe: 'Supper Spot',
@@ -468,7 +467,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: false,
     isOpenNow: true,
     openingHoursText: '11:30 AM - 10:00 PM (Daily)',
-    photoUrl: cafeSourdoughImg,
+    photoUrl: chickenRiceImg,
     mapsUrl: 'https://maps.google.com/?q=Astons+Specialities+City+Square+Mall',
     highlightDish: 'Prime Sirloin Steak with Mushroom Sauce, Onion Rings & Baked Potato',
     vibe: 'Casual Western',
@@ -492,7 +491,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isOpenNow: true,
     isOpenAllNight: true,
     openingHoursText: 'Open 24 Hours (Supper Champion)',
-    photoUrl: masalaDosaImg,
+    photoUrl: rotiPrataImg,
     mapsUrl: 'https://maps.google.com/?q=Ananda+Bhavan+Buffalo+Road',
     highlightDish: 'Rava Onion Dosa, Chana Bhatura & Fresh Sugarcane Juice',
     vibe: '24/7 Eatery',
@@ -538,7 +537,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: false,
     isOpenNow: true,
     openingHoursText: '12:00 PM - 2:00 AM (Supper, Daily)',
-    photoUrl: laksaBowlImg,
+    photoUrl: satayImg,
     mapsUrl: 'https://maps.google.com/?q=Newton+Food+Centre+Singapore',
     highlightDish: 'BBQ Sambal Stingray on Banana Leaf & Black Pepper Crab',
     vibe: 'Open-Air Hawker',
@@ -561,7 +560,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: false,
     isOpenNow: true,
     openingHoursText: 'Open 24 Hours (Satay stalls light up from 7:00 PM)',
-    photoUrl: chickenRiceImg,
+    photoUrl: satayImg,
     mapsUrl: 'https://maps.google.com/?q=Lau+Pa+Sat+Satay+Street',
     highlightDish: 'Mixed Chicken, Mutton & Prawn Satay with Cold Tiger Beer',
     vibe: 'Historic Victorian Pavilion',
@@ -584,7 +583,7 @@ export const SINGAPORE_RESTAURANTS: Restaurant[] = [
     isVegetarianFriendly: false,
     isOpenNow: true,
     openingHoursText: '11:30 AM - 2:00 AM (Supper Spot, Daily)',
-    photoUrl: laksaBowlImg,
+    photoUrl: bakKutTehImg,
     mapsUrl: 'https://maps.google.com/?q=Seng+Kee+Black+Chicken+Herbal+Soup+Changi+Road',
     highlightDish: 'Pork Kidney & Liver Herbal Mee Sua Soup with Crispy Lard',
     vibe: 'Supper Spot',

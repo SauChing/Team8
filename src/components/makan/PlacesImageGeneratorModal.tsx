@@ -332,6 +332,7 @@ export const PlacesImageGeneratorModal: React.FC<PlacesImageGeneratorModalProps>
                         <img
                           src={photo.proxiedPhotoUrl}
                           alt={placeResult.displayName?.text || 'Food image'}
+                          referrerPolicy="no-referrer"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute bottom-2 left-2 px-2 py-0.5 rounded-md bg-stone-950/70 backdrop-blur-xs text-white text-[10px] font-medium">

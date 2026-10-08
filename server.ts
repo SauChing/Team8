@@ -5,7 +5,6 @@ import dotenv from 'dotenv';
 import { placesRouter } from './server/routes/places';
 import { oneMapRouter } from './server/routes/onemap';
 import { sessionsRouter } from './server/routes/sessions';
-import healthHandler from './api/health.js';
 
 dotenv.config();
 
@@ -23,9 +22,14 @@ async function startServer() {
   app.use('/api/onemap', oneMapRouter);
   app.use('/api/sessions', sessionsRouter);
 
-  // Health check endpoints
-  app.get('/api/health', healthHandler);
-  app.get('/api/health.js', healthHandler);
+  // Health check
+  app.get('/api/health', (req, res) => {
+    res.json({
+      status: 'ok',
+      service: 'Jiak Simi API',
+      timestamp: new Date().toISOString(),
+    });
+  });
 
   // Development: Mount Vite middlewares for seamless HMR & SPA serving
   if (process.env.NODE_ENV !== 'production') {
@@ -35,7 +39,6 @@ async function startServer() {
         middlewareMode: true,
         host: '0.0.0.0',
         port: PORT,
-        allowedHosts: true,
       },
       appType: 'spa',
     });
