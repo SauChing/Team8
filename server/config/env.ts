@@ -80,12 +80,17 @@ export const geminiApiKey = (() => {
 })();
 
 /**
- * Singapore OneMap API Key / Token (if provided)
+ * Singapore OneMap API Key / Token / Credentials
  */
 export const oneMapApiKey = (() => {
   const candidate =
     process.env.ONEMAP_API_KEY ||
+    process.env.ONEMAP_TOKEN ||
     process.env.VITE_ONEMAP_API_KEY ||
+    process.env.VITE_ONEMAP_TOKEN ||
     '';
   return candidate.trim();
 })();
+
+export const oneMapEmail = (process.env.ONEMAP_EMAIL || '').trim();
+export const oneMapPassword = (process.env.ONEMAP_PASSWORD || '').trim();
